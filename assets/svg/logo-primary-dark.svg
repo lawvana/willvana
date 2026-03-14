@@ -1,0 +1,20 @@
+<svg viewBox="0 0 440 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="440" height="80">
+  <!-- Dark background -->
+  <rect width="440" height="80" fill="#0F1C33"/>
+  <!-- Shield -->
+  <path d="M28 5L5 14V30C5 42.5 15 52.5 28 56C41 52.5 51 42.5 51 30V14L28 5Z" fill="#243560"/>
+  <path d="M28 9L9 17V30C9 40.8 17.5 49.5 28 52.5C38.5 49.5 47 40.8 47 30V17L28 9Z" fill="#2D4070"/>
+  <rect x="18" y="22" width="20" height="18" rx="2" fill="none" stroke="rgba(240,232,216,0.9)" stroke-width="1.5"/>
+  <line x1="18" y1="27" x2="38" y2="27" stroke="#C49A3C" stroke-width="1.5"/>
+  <line x1="23" y1="21" x2="23" y2="25" stroke="rgba(240,232,216,0.9)" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="33" y1="21" x2="33" y2="25" stroke="rgba(240,232,216,0.9)" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M22 33 Q24 30 28 30 Q32 30 34 33" stroke="#C49A3C" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <polyline points="34,31 34,33 32,33" stroke="#C49A3C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="24" cy="15" r="1" fill="#C49A3C" opacity="0.6"/>
+  <circle cx="28" cy="13" r="1.2" fill="#C49A3C"/>
+  <circle cx="32" cy="15" r="1" fill="#C49A3C" opacity="0.6"/>
+  <!-- Wordmark -->
+  <text x="72" y="22" font-family="Georgia, serif" font-size="10" fill="#C49A3C" letter-spacing="3" font-weight="400">WAKE COUNTY, NC</text>
+  <text x="70" y="50" font-family="Georgia, serif" font-size="28" fill="#FAFAF8" letter-spacing="-0.5" font-weight="900">Reset My <tspan fill="#C49A3C">Courtdate</tspan></text>
+  <text x="72" y="64" font-family="monospace" font-size="9" fill="rgba(255,255,255,0.4)" letter-spacing="2.5">MISSED COURT DATE RESOLUTION SERVICE</text>
+</svg>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Begin Your Estate Plan | WillVana | Barker Richardson, PLLC</title>
+<link rel="icon" href="/assets/svg/favicon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --forest:#1C3A2E; --forest-mid:#234A3A; --gold:#C49A3C; --gold-light:#DDB96A;
+  --gold-dim:rgba(196,154,60,.12); --parchment:#F5F0E8; --ink:#1A2820;
+  --body:#3D4F46; --muted:#7A8C82; --border:rgba(196,154,60,.18);
+  --white:#FDFCFA; --gray:#8A9A90;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--forest);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;min-height:100vh;overflow-x:hidden}
+
+/* PROGRESS */
+.progress-wrap{position:fixed;top:0;left:0;right:0;height:3px;background:rgba(255,255,255,.08);z-index:100}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));transition:width .5s cubic-bezier(.4,0,.2,1);width:0%}
+
+/* HEADER */
+.header{position:fixed;top:3px;left:0;right:0;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;background:rgba(28,58,46,.92);backdrop-filter:blur(12px);z-index:99;border-bottom:1px solid rgba(196,154,60,.12)}
+.header img{height:28px}
+.header-phone{font-size:13px;color:rgba(245,240,232,.4);text-decoration:none;transition:color .2s}
+.header-phone:hover{color:var(--gold)}
+
+/* STAGE */
+.stage{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:90px 24px 60px}
+
+/* SCREEN */
+.screen{display:none;width:100%;max-width:640px;animation:fadeUp .45s cubic-bezier(.4,0,.2,1) forwards}
+.screen.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeOut{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(-18px)}}
+.screen.leaving{animation:fadeOut .28s cubic-bezier(.4,0,.2,1) forwards}
+
+.step-label{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;opacity:.8}
+.question{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4vw,40px);font-weight:400;font-style:italic;line-height:1.2;margin-bottom:10px;color:var(--white)}
+.sub-text{font-size:14px;color:rgba(245,240,232,.45);margin-bottom:36px;line-height:1.65}
+
+/* CHOICES */
+.choices{display:flex;flex-direction:column;gap:10px}
+.choice-btn{display:flex;align-items:center;gap:16px;padding:16px 20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);cursor:pointer;transition:all .2s;text-align:left;color:var(--white);font-family:'DM Sans',sans-serif;font-size:15px;font-weight:400;width:100%}
+.choice-btn:hover{background:rgba(196,154,60,.1);border-color:var(--gold);transform:translateX(3px)}
+.choice-btn.selected{background:rgba(196,154,60,.12);border-color:var(--gold)}
+.choice-key{width:26px;height:26px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--gray);flex-shrink:0;transition:all .2s;font-family:'DM Mono',monospace}
+.choice-btn:hover .choice-key,.choice-btn.selected .choice-key{background:var(--gold);border-color:var(--gold);color:var(--forest)}
+
+/* FIELDS */
+.field-group{display:flex;flex-direction:column;gap:14px;margin-bottom:28px}
+.field-row{display:flex;gap:14px}
+.field-row .field-wrap{flex:1}
+.field-wrap{display:flex;flex-direction:column;gap:7px}
+.field-label{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(245,240,232,.35)}
+input[type=text],input[type=tel],input[type=email],select,textarea{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);padding:13px 15px;font-family:'DM Sans',sans-serif;font-size:15px;color:var(--white);outline:none;transition:border-color .2s,background .2s;width:100%;-webkit-appearance:none}
+select option{background:var(--forest);color:var(--white)}
+input:focus,select:focus,textarea:focus{border-color:var(--gold);background:rgba(196,154,60,.06)}
+input::placeholder,textarea::placeholder{color:rgba(255,255,255,.2)}
+textarea{resize:vertical;min-height:100px}
+
+/* BUTTONS */
+.next-btn{margin-top:28px;display:inline-flex;align-items:center;gap:10px;padding:15px 30px;background:var(--gold);color:var(--forest);border:none;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:background .2s,transform .15s;letter-spacing:.02em}
+.next-btn:hover{background:var(--gold-light);transform:translateY(-1px)}
+.next-btn svg{transition:transform .2s}
+.next-btn:hover svg{transform:translateX(4px)}
+.back-btn{background:none;border:none;color:rgba(245,240,232,.3);font-family:'DM Sans',sans-serif;font-size:13px;cursor:pointer;padding:10px 0;margin-top:12px;display:flex;align-items:center;gap:5px;transition:color .2s}
+.back-btn:hover{color:rgba(245,240,232,.7)}
+
+/* QUOTE CARD */
+.quote-card{background:rgba(255,255,255,.04);border:1px solid rgba(196,154,60,.3);padding:36px;position:relative;overflow:hidden}
+.quote-card::before{content:'';position:absolute;top:-50px;right:-50px;width:160px;height:160px;background:radial-gradient(circle,rgba(196,154,60,.1) 0%,transparent 70%)}
+.quote-label{font-family:'DM Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;opacity:.8}
+.quote-name{font-size:16px;color:rgba(245,240,232,.45);margin-bottom:24px}
+.quote-name strong{color:var(--white)}
+.fee-display{display:flex;align-items:baseline;gap:5px;margin-bottom:6px}
+.fee-dollar{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--gold);align-self:flex-start;margin-top:10px}
+.fee-amount{font-family:'Cormorant Garamond',serif;font-size:60px;font-weight:700;color:var(--white);line-height:1}
+.fee-note{font-size:13px;color:rgba(245,240,232,.4);margin-bottom:28px}
+.breakdown{background:rgba(0,0,0,.15);padding:18px;margin-bottom:24px}
+.breakdown-title{font-family:'DM Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;opacity:.7}
+.breakdown-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:13px}
+.breakdown-row:last-child{border-bottom:none}
+.breakdown-row .item{color:rgba(245,240,232,.5)}
+.breakdown-row .amt{color:var(--white);font-weight:500}
+.breakdown-row .amt.gold{color:var(--gold)}
+.breakdown-row.total .item{color:var(--white);font-weight:600;font-size:14px}
+.includes{display:flex;flex-direction:column;gap:8px;margin-bottom:26px}
+.include-item{display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(245,240,232,.55)}
+.include-item svg{color:var(--gold);flex-shrink:0}
+.hire-btn{display:block;width:100%;padding:17px;background:var(--gold);color:var(--forest);border:none;font-family:'DM Sans',sans-serif;font-size:17px;font-weight:700;cursor:pointer;text-align:center;text-decoration:none;transition:background .2s,transform .15s;letter-spacing:.02em}
+.hire-btn:hover{background:var(--gold-light);transform:translateY(-2px)}
+.disclaimer{font-size:11px;color:rgba(245,240,232,.25);text-align:center;margin-top:18px;line-height:1.65}
+
+/* WELCOME */
+.welcome-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(196,154,60,.1);border:1px solid rgba(196,154,60,.25);padding:6px 14px;font-family:'DM Mono',monospace;font-size:11px;font-weight:600;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;margin-bottom:22px}
+.welcome-badge span{width:6px;height:6px;background:var(--gold);border-radius:50%;display:inline-block}
+.welcome-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,6vw,56px);font-weight:300;font-style:italic;line-height:1.1;margin-bottom:18px}
+.welcome-title em{font-style:normal;font-weight:600;color:var(--gold)}
+.welcome-sub{font-size:16px;color:rgba(245,240,232,.5);line-height:1.7;max-width:500px;margin-bottom:34px}
+.time-note{font-size:12px;color:rgba(245,240,232,.3);margin-top:12px;display:flex;align-items:center;gap:6px}
+
+@media(max-width:600px){.header{padding:12px 18px}.stage{padding:80px 18px 50px}.quote-card{padding:24px 18px}.fee-amount{font-size:48px}.field-row{flex-direction:column;gap:10px}}
+</style>
+</head>
+<body>
+
+<div class="progress-wrap"><div class="progress-fill" id="progressBar"></div></div>
+
+<header class="header">
+  <a href="/"><img src="/assets/svg/logo-compact-dark-text.svg" alt="WillVana" style="filter:brightness(0) invert(1) opacity(.8)"></a>
+  <a href="tel:9198318901" class="header-phone">☎ (919) 831-8901</a>
+</header>
+
+<main class="stage">
+
+  <!-- S0: WELCOME -->
+  <div class="screen active" id="s0">
+    <div class="welcome-badge"><span></span> Free · 10 Minutes · No Obligation</div>
+    <h1 class="welcome-title">Plan your legacy.<br><em>Start here.</em></h1>
+    <p class="welcome-sub">Answer a few questions and Attorney Barker will prepare a flat-fee proposal for your NC estate plan — usually within one business day.</p>
+    <button class="next-btn" onclick="goTo(1)">
+      Begin My Estate Plan
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+    <div class="time-note">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Takes about 10 minutes
+    </div>
+  </div>
+
+  <!-- S1: MARITAL STATUS -->
+  <div class="screen" id="s1">
+    <div class="step-label">Step 1 of 8</div>
+    <h2 class="question">What is your current marital status?</h2>
+    <p class="sub-text">This affects how your estate plan is structured and what documents are needed.</p>
+    <div class="choices">
+      <button class="choice-btn" onclick="select(this,'marital','married',2)"><span class="choice-key">A</span>Married</button>
+      <button class="choice-btn" onclick="select(this,'marital','single',2)"><span class="choice-key">B</span>Single / Never Married</button>
+      <button class="choice-btn" onclick="select(this,'marital','divorced',2)"><span class="choice-key">C</span>Divorced</button>
+      <button class="choice-btn" onclick="select(this,'marital','widowed',2)"><span class="choice-key">D</span>Widowed</button>
+    </div>
+    <button class="back-btn" onclick="goTo(0)">← Back</button>
+  </div>
+
+  <!-- S2: CHILDREN -->
+  <div class="screen" id="s2">
+    <div class="step-label">Step 2 of 8</div>
+    <h2 class="question">Do you have children?</h2>
+    <p class="sub-text">Including stepchildren, adopted children, or children from a prior relationship.</p>
+    <div class="choices">
+      <button class="choice-btn" onclick="select(this,'children','minor',3)"><span class="choice-key">A</span>Yes — at least one is under 18</button>
+      <button class="choice-btn" onclick="select(this,'children','adult',3)"><span class="choice-key">B</span>Yes — all are adults (18+)</button>
+      <button class="choice-btn" onclick="select(this,'children','none',3)"><span class="choice-key">C</span>No children</button>
+    </div>
+    <button class="back-btn" onclick="goTo(1)">← Back</button>
+  </div>
+
+  <!-- S3: PRIMARY GOAL -->
+  <div class="screen" id="s3">
+    <div class="step-label">Step 3 of 8</div>
+    <h2 class="question">What is your primary estate planning goal?</h2>
+    <p class="sub-text">This shapes which documents go into your plan.</p>
+    <div class="choices">
+      <button class="choice-btn" onclick="select(this,'goal','family',4)"><span class="choice-key">A</span>Provide for my spouse and children</button>
+      <button class="choice-btn" onclick="select(this,'goal','avoid-probate',4)"><span class="choice-key">B</span>Avoid probate and keep things private</button>
+      <button class="choice-btn" onclick="select(this,'goal','asset-protection',4)"><span class="choice-key">C</span>Protect assets from creditors or long-term care costs</button>
+      <button class="choice-btn" onclick="select(this,'goal','digital',4)"><span class="choice-key">D</span>Protect digital assets and cryptocurrency</button>
+      <button class="choice-btn" onclick="select(this,'goal','all',4)"><span class="choice-key">E</span>All of the above / comprehensive plan</button>
+    </div>
+    <button class="back-btn" onclick="goTo(2)">← Back</button>
+  </div>
+
+  <!-- S4: ASSETS -->
+  <div class="screen" id="s4">
+    <div class="step-label">Step 4 of 8</div>
+    <h2 class="question">Which types of assets do you own?</h2>
+    <p class="sub-text">Select all that apply. This helps us identify what your plan needs to cover.</p>
+    <div class="choices" id="assetChoices">
+      <button class="choice-btn toggle" onclick="toggleAsset(this,'real-estate')"><span class="choice-key">A</span>Real estate / home</button>
+      <button class="choice-btn toggle" onclick="toggleAsset(this,'retirement')"><span class="choice-key">B</span>Retirement accounts (401k, IRA)</button>
+      <button class="choice-btn toggle" onclick="toggleAsset(this,'brokerage')"><span class="choice-key">C</span>Brokerage / investment accounts</button>
+      <button class="choice-btn toggle" onclick="toggleAsset(this,'crypto')"><span class="choice-key">D</span>Cryptocurrency or digital assets</button>
+      <button class="choice-btn toggle" onclick="toggleAsset(this,'business')"><span class="choice-key">E</span>Business interest or LLC</button>
+      <button class="choice-btn toggle" onclick="toggleAsset(this,'life-insurance')"><span class="choice-key">F</span>Life insurance policy</button>
+    </div>
+    <button class="next-btn" onclick="goTo(5)" style="margin-top:24px">
+      Continue
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+    <button class="back-btn" onclick="goTo(3)">← Back</button>
+  </div>
+
+  <!-- S5: EXISTING DOCUMENTS -->
+  <div class="screen" id="s5">
+    <div class="step-label">Step 5 of 8</div>
+    <h2 class="question">Do you have any existing estate planning documents?</h2>
+    <p class="sub-text">Existing documents affect how we structure your new plan.</p>
+    <div class="choices">
+      <button class="choice-btn" onclick="select(this,'existing','none',6)"><span class="choice-key">A</span>No — starting from scratch</button>
+      <button class="choice-btn" onclick="select(this,'existing','old-will',6)"><span class="choice-key">B</span>Yes — an old will that needs updating</button>
+      <button class="choice-btn" onclick="select(this,'existing','some',6)"><span class="choice-key">C</span>Yes — some documents but not a complete plan</button>
+      <button class="choice-btn" onclick="select(this,'existing','complete',6)"><span class="choice-key">D</span>Yes — a complete plan that needs review/revision</button>
+    </div>
+    <button class="back-btn" onclick="goTo(4)">← Back</button>
+  </div>
+
+  <!-- S6: PLAN TYPE -->
+  <div class="screen" id="s6">
+    <div class="step-label">Step 6 of 8</div>
+    <h2 class="question">Which best describes what you're looking for?</h2>
+    <p class="sub-text">We'll build a quote around the right package for your situation.</p>
+    <div class="choices">
+      <button class="choice-btn" onclick="select(this,'planType','will-only',7)"><span class="choice-key">A</span>Will only — simple, straightforward</button>
+      <button class="choice-btn" onclick="select(this,'planType','trust-package',7)"><span class="choice-key">B</span>Trust + pour-over will package</button>
+      <button class="choice-btn" onclick="select(this,'planType','complete',7)"><span class="choice-key">C</span>Complete estate plan — everything</button>
+      <button class="choice-btn" onclick="select(this,'planType','advise',7)"><span class="choice-key">D</span>Not sure — I need guidance from the attorney</button>
+    </div>
+    <button class="back-btn" onclick="goTo(5)">← Back</button>
+  </div>
+
+  <!-- S7: CONTACT -->
+  <div class="screen" id="s7">
+    <div class="step-label">Step 7 of 8</div>
+    <h2 class="question">Last step — who are we helping?</h2>
+    <p class="sub-text">Attorney Barker will review your answers and send a personal flat-fee proposal to this address.</p>
+    <div class="field-group">
+      <div class="field-row">
+        <div class="field-wrap">
+          <div class="field-label">First Name</div>
+          <input type="text" id="firstName" placeholder="First" oninput="data.firstName=this.value">
+        </div>
+        <div class="field-wrap">
+          <div class="field-label">Last Name</div>
+          <input type="text" id="lastName" placeholder="Last" oninput="data.lastName=this.value">
+        </div>
+      </div>
+      <div class="field-wrap">
+        <div class="field-label">Cell Phone</div>
+        <input type="tel" id="phone" placeholder="(919) 555-0100" oninput="data.phone=this.value">
+      </div>
+      <div class="field-wrap">
+        <div class="field-label">Email Address</div>
+        <input type="email" id="email" placeholder="you@email.com" oninput="data.email=this.value">
+      </div>
+      <div class="field-wrap">
+        <div class="field-label">Anything Else? (Optional)</div>
+        <textarea id="notes" placeholder="Special circumstances, timeline, questions for the attorney..." oninput="data.notes=this.value"></textarea>
+      </div>
+    </div>
+    <button class="next-btn" onclick="submitAndShowQuote()">
+      See My Proposal
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+    <button class="back-btn" onclick="goTo(6)">← Back</button>
+  </div>
+
+  <!-- S8: QUOTE -->
+  <div class="screen" id="s8">
+    <div class="step-label">Your Estate Plan Proposal</div>
+    <h2 class="question" style="font-style:normal;margin-bottom:26px">Here's what your plan includes.</h2>
+    <div class="quote-card">
+      <div class="quote-label">Prepared for</div>
+      <div class="quote-name" id="quoteName"></div>
+      <div class="fee-display">
+        <div class="fee-dollar">$</div>
+        <div class="fee-amount" id="feeAmount">0</div>
+      </div>
+      <div class="fee-note">Flat fee — no hourly billing, no surprises.</div>
+      <div class="breakdown" id="feeBreakdown"></div>
+      <div class="includes" id="includesList"></div>
+      <a href="tel:9198318901" class="hire-btn">Call (919) 831-8901 to Get Started →</a>
+    </div>
+    <p class="disclaimer">This proposal is based on your answers and is valid for 7 days. A detailed engagement letter will be provided upon retainer. Barker Richardson, PLLC · LawVana.com · Licensed in North Carolina.</p>
+  </div>
+
+</main>
+
+<script>
+const data = { marital:null, children:null, goal:null, assets:[], existing:null, planType:null, firstName:'', lastName:'', phone:'', email:'', notes:'' };
+let currentScreen = 's0';
+const TOTAL = 8;
+
+function updateProgress(id) {
+  const map = {s0:0,s1:1,s2:2,s3:3,s4:4,s5:5,s6:6,s7:7,s8:8};
+  document.getElementById('progressBar').style.width = ((map[id]||0)/TOTAL*100)+'%';
+}
+
+function goTo(n) {
+  const id = typeof n === 'number' ? 's'+n : n;
+  const cur = document.getElementById(currentScreen);
+  cur.classList.add('leaving');
+  setTimeout(()=>{
+    cur.classList.remove('active','leaving');
+    const next = document.getElementById(id);
+    next.classList.add('active');
+    currentScreen = id;
+    updateProgress(id);
+    window.scrollTo({top:0,behavior:'smooth'});
+  }, 270);
+}
+
+function select(btn, field, value, next) {
+  btn.closest('.choices').querySelectorAll('.choice-btn').forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
+  data[field] = value;
+  setTimeout(()=>goTo(next), 300);
+}
+
+function toggleAsset(btn, value) {
+  btn.classList.toggle('selected');
+  if (data.assets.includes(value)) {
+    data.assets = data.assets.filter(a=>a!==value);
+  } else {
+    data.assets.push(value);
+  }
+}
+
+function calculateFee() {
+  let base = 0;
+  const breakdown = [], includes = [];
+
+  if (data.planType === 'will-only') {
+    base = 750;
+    breakdown.push({item:'Last Will & Testament',amt:750});
+    includes.push('NC-compliant Last Will & Testament');
+    includes.push('Self-proving affidavit (G.S. § 31-11.6)');
+    if (data.children === 'minor') { base += 150; breakdown.push({item:'Guardian nomination provisions',amt:150}); }
+  } else if (data.planType === 'trust-package') {
+    base = 1800;
+    breakdown.push({item:'Irrevocable Trust (NCUTC-compliant)',amt:1500});
+    breakdown.push({item:'Pour-Over Will',amt:300});
+    includes.push('NCUTC-compliant irrevocable trust');
+    includes.push('Pour-over will coordinated with trust');
+    includes.push('Trustee compliance checklist');
+    includes.push('Funding memorandum');
+  } else if (data.planType === 'complete' || data.planType === 'advise') {
+    base = 2200;
+    breakdown.push({item:'Complete Estate Plan Package',amt:2200});
+    includes.push('Last Will & Testament');
+    includes.push('Irrevocable Trust (NCUTC-compliant)');
+    includes.push('Pour-over will');
+    includes.push('Trustee checklist & compliance calendar');
+    includes.push('Beneficiary communication letter bank');
+    includes.push('Funding memorandum');
+  }
+
+  if (data.assets.includes('crypto')) { base += 200; breakdown.push({item:'Digital asset / RUFADAA rider',amt:200}); includes.push('Digital asset & cryptocurrency provisions (RUFADAA)'); }
+  if (data.assets.includes('business')) { base += 300; breakdown.push({item:'Business interest provisions',amt:300}); includes.push('Business interest & LLC succession provisions'); }
+  if (data.marital === 'married' && data.planType !== 'will-only') { base += 400; breakdown.push({item:'Spousal coordination (joint plan)',amt:400}); includes.push('Spousal coordination — joint plan structure'); }
+
+  breakdown.push({item:'TOTAL FLAT FEE',amt:base,total:true});
+  return {total:base, breakdown, includes};
+}
+
+function submitAndShowQuote() {
+  if (!data.firstName || !data.phone) { alert('Please enter your name and phone number.'); return; }
+  const {total, breakdown, includes} = calculateFee();
+
+  document.getElementById('quoteName').innerHTML = `<strong>${data.firstName} ${data.lastName}</strong> &nbsp;·&nbsp; ${data.phone}`;
+  document.getElementById('feeAmount').textContent = total.toLocaleString();
+
+  let bdHtml = '<div class="breakdown-title">Fee Breakdown</div>';
+  breakdown.forEach(r=>{
+    bdHtml += `<div class="breakdown-row${r.total?' total':''}"><span class="item">${r.item}</span><span class="amt${r.total?' gold':''}">${'$'+r.amt.toLocaleString()}</span></div>`;
+  });
+  document.getElementById('feeBreakdown').innerHTML = bdHtml;
+
+  let incHtml = '';
+  includes.forEach(i=>{ incHtml += `<div class="include-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>${i}</div>`; });
+  document.getElementById('includesList').innerHTML = incHtml;
+
+  goTo('s8');
+}
+</script>
+</body>
+</html>

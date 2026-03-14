@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WillVana | NC Estate Planning Attorney | Wills, Trusts & Legacy</title>
+<meta name="description" content="NC estate planning attorney Daniel T. Barker drafts wills, irrevocable trusts, and pour-over plans that protect your family and your legacy. Flat fee. All NC counties. LawVana.com.">
+<meta name="keywords" content="NC estate planning attorney, will attorney Raleigh, trust attorney North Carolina, irrevocable trust NC, pour-over will, estate planning Wake County">
+<meta property="og:title" content="WillVana | NC Estate Planning Attorney">
+<meta property="og:description" content="Wills, trusts, and legacy planning from NC attorney Daniel T. Barker. Flat fee. Starts online.">
+<link rel="icon" href="/assets/svg/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --forest:     #1C3A2E;
+  --forest-mid: #234A3A;
+  --forest-lt:  #2D5E49;
+  --gold:       #C49A3C;
+  --gold-light: #DDB96A;
+  --gold-dim:   rgba(196,154,60,.15);
+  --gold-glow:  rgba(196,154,60,.25);
+  --parchment:  #F5F0E8;
+  --parchment2: #EDE6D8;
+  --ink:        #1A2820;
+  --body:       #3D4F46;
+  --muted:      #7A8C82;
+  --border:     rgba(196,154,60,.18);
+  --border-lt:  rgba(196,154,60,.1);
+  --white:      #FDFCFA;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:var(--white); color:var(--ink); font-family:'DM Sans',sans-serif; font-weight:300; overflow-x:hidden; }
+::-webkit-scrollbar { width:3px; }
+::-webkit-scrollbar-thumb { background:var(--gold); }
+
+/* ── NAV ── */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:1rem 2.5rem;
+  background:rgba(253,252,250,.95);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border-lt);
+}
+.nav-logo { display:flex; align-items:center; gap:.75rem; text-decoration:none; }
+.nav-logo img { height:34px; }
+.nav-links { display:flex; gap:2rem; list-style:none; }
+.nav-links a { font-size:.75rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color .2s; }
+.nav-links a:hover { color:var(--forest); }
+.nav-cta {
+  display:inline-flex; align-items:center; gap:.5rem;
+  font-family:'DM Mono',monospace; font-size:.68rem; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--white); background:var(--forest); text-decoration:none;
+  padding:.5rem 1.2rem; transition:background .2s;
+}
+.nav-cta:hover { background:var(--forest-lt); }
+@media(max-width:768px){ .nav-links{display:none} nav{padding:1rem 1.25rem} }
+
+/* ── HERO ── */
+.hero {
+  min-height:100vh;
+  display:flex; align-items:center;
+  position:relative; overflow:hidden;
+  padding:8rem 2.5rem 5rem;
+  background:var(--parchment);
+}
+.hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse 60% 70% at 100% 50%, rgba(28,58,46,.06) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 40% at 0% 100%, rgba(196,154,60,.07) 0%, transparent 60%);
+}
+/* elegant vertical rule */
+.hero::after {
+  content:'';
+  position:absolute; left:50%; top:10%; bottom:10%;
+  width:1px; background:linear-gradient(to bottom, transparent, var(--border), transparent);
+  opacity:.5;
+}
+.hero-content { position:relative; z-index:2; max-width:600px; }
+.hero-eyebrow {
+  display:inline-flex; align-items:center; gap:.75rem;
+  font-family:'DM Mono',monospace; font-size:.6rem; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:1.5rem;
+  opacity:0; animation:fadeUp .5s .1s forwards;
+}
+.hero-eyebrow::before { content:''; width:28px; height:1px; background:var(--gold); }
+.hero-h1 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3rem,7vw,5.5rem);
+  font-weight:300; line-height:1.08; letter-spacing:-.01em;
+  color:var(--forest); margin-bottom:1.5rem;
+  opacity:0; animation:fadeUp .7s .2s forwards;
+}
+.hero-h1 em { font-style:italic; color:var(--gold); font-weight:400; }
+.hero-sub {
+  font-size:clamp(.95rem,2vw,1.1rem); color:var(--body); max-width:480px; line-height:1.85; margin-bottom:2.5rem;
+  opacity:0; animation:fadeUp .7s .35s forwards;
+}
+.hero-sub strong { color:var(--forest); font-weight:500; }
+.hero-ctas {
+  display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:2.5rem;
+  opacity:0; animation:fadeUp .7s .5s forwards;
+}
+.btn-forest {
+  display:inline-flex; align-items:center; gap:.5rem;
+  background:var(--forest); color:var(--white);
+  font-family:'DM Sans',sans-serif; font-size:.8rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase;
+  padding:1rem 2rem; text-decoration:none; transition:all .2s;
+}
+.btn-forest:hover { background:var(--forest-lt); transform:translateY(-1px); box-shadow:0 6px 24px rgba(28,58,46,.2); }
+.btn-outline-forest {
+  display:inline-flex; align-items:center; gap:.5rem;
+  background:transparent; color:var(--forest);
+  font-family:'DM Sans',sans-serif; font-size:.8rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase;
+  padding:1rem 2rem; text-decoration:none; border:1px solid rgba(28,58,46,.25); transition:all .2s;
+}
+.btn-outline-forest:hover { border-color:var(--forest); background:rgba(28,58,46,.04); }
+.hero-trust {
+  display:flex; gap:2rem; flex-wrap:wrap;
+  opacity:0; animation:fadeUp .7s .65s forwards;
+}
+.trust-item { display:flex; align-items:center; gap:.5rem; font-size:.78rem; color:var(--muted); }
+.trust-item strong { color:var(--body); font-weight:500; }
+
+/* large decorative word */
+.hero-deco {
+  position:absolute; right:-3%; bottom:-8%;
+  font-family:'Cormorant Garamond',serif; font-size:clamp(10rem,20vw,18rem);
+  font-weight:300; font-style:italic; line-height:1;
+  color:rgba(28,58,46,.05); pointer-events:none; z-index:1; white-space:nowrap;
+}
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+
+/* ── GOLD RULE STRIP ── */
+.rule-strip {
+  height:3px;
+  background:linear-gradient(90deg, var(--forest) 0%, var(--gold) 40%, var(--gold-light) 60%, transparent 100%);
+}
+
+/* ── SERVICES ── */
+.services { padding:6rem 2.5rem; background:var(--white); }
+.section-inner { max-width:1100px; margin:0 auto; }
+.eyebrow { font-family:'DM Mono',monospace; font-size:.58rem; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); margin-bottom:1rem; display:flex; align-items:center; gap:.75rem; }
+.eyebrow::before { content:''; width:24px; height:1px; background:var(--gold); }
+h2.section-title { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3rem); font-weight:300; line-height:1.1; color:var(--forest); margin-bottom:1rem; }
+h2.section-title em { font-style:italic; font-weight:400; }
+.section-sub { font-size:.95rem; color:var(--body); max-width:520px; line-height:1.8; margin-bottom:3rem; }
+
+.service-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.5px; background:var(--border-lt); border:1px solid var(--border-lt); }
+.service-card {
+  background:var(--white); padding:2.5rem 2rem;
+  position:relative; overflow:hidden;
+  transition:background .2s;
+}
+.service-card:hover { background:var(--parchment); }
+.service-card::before { content:''; position:absolute; top:0;left:0;bottom:0;width:3px; background:transparent; transition:background .2s; }
+.service-card:hover::before { background:var(--gold); }
+.service-icon { font-size:1.6rem; margin-bottom:1.25rem; }
+.service-card h3 { font-family:'Cormorant Garamond',serif; font-size:1.35rem; font-weight:600; color:var(--forest); margin-bottom:.5rem; }
+.service-card p { font-size:.85rem; color:var(--body); line-height:1.7; margin-bottom:1.25rem; }
+.service-fee { font-family:'DM Mono',monospace; font-size:.6rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); }
+
+/* ── WHY ── */
+.why { padding:6rem 2.5rem; background:var(--parchment); }
+.why-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
+.why-list { display:flex; flex-direction:column; gap:2rem; margin-top:2rem; }
+.why-item { display:flex; gap:1.25rem; }
+.why-num {
+  font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:300; font-style:italic;
+  color:var(--gold); line-height:1; flex-shrink:0; width:2rem; text-align:center;
+}
+.why-item h3 { font-size:.95rem; font-weight:500; color:var(--forest); margin-bottom:.35rem; }
+.why-item p { font-size:.85rem; color:var(--body); line-height:1.7; }
+
+.legacy-card {
+  background:var(--forest); padding:3rem;
+  position:relative; overflow:hidden;
+}
+.legacy-card::before {
+  content:'';
+  position:absolute; top:-40px; right:-40px;
+  width:180px; height:180px;
+  background:radial-gradient(circle, rgba(196,154,60,.15) 0%, transparent 70%);
+}
+.legacy-card::after {
+  content:'"';
+  position:absolute; top:1.5rem; left:2rem;
+  font-family:'Cormorant Garamond',serif; font-size:8rem; font-weight:300;
+  color:rgba(196,154,60,.12); line-height:1;
+}
+.legacy-quote {
+  font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:300; font-style:italic;
+  color:var(--parchment); line-height:1.6; margin-bottom:2rem; position:relative; z-index:1;
+}
+.legacy-attr { font-family:'DM Mono',monospace; font-size:.6rem; letter-spacing:.16em; text-transform:uppercase; color:rgba(196,154,60,.7); position:relative; z-index:1; }
+.legacy-divider { height:1px; background:rgba(196,154,60,.2); margin:1.5rem 0; }
+.legacy-stats { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+.legacy-stat-num { font-family:'Cormorant Garamond',serif; font-size:2.5rem; font-weight:300; color:var(--gold); line-height:1; }
+.legacy-stat-label { font-family:'DM Mono',monospace; font-size:.55rem; letter-spacing:.12em; text-transform:uppercase; color:rgba(196,154,60,.5); margin-top:.25rem; }
+@media(max-width:768px){ .why-grid{grid-template-columns:1fr} }
+
+/* ── PROCESS ── */
+.process { padding:6rem 2.5rem; background:var(--white); }
+.process-steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:0; position:relative; }
+.process-steps::before {
+  content:'';
+  position:absolute; top:28px; left:5%; right:5%; height:1px;
+  background:linear-gradient(90deg, var(--border), var(--gold), var(--border));
+}
+.process-step { padding:0 1.5rem; text-align:center; position:relative; }
+.process-num {
+  width:56px; height:56px; margin:0 auto 1.5rem;
+  background:var(--white); border:1px solid var(--border);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:600; color:var(--forest);
+  position:relative; z-index:1;
+}
+.process-step h3 { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:600; color:var(--forest); margin-bottom:.5rem; }
+.process-step p { font-size:.82rem; color:var(--body); line-height:1.65; }
+
+/* ── DOCUMENTS ── */
+.documents { padding:6rem 2.5rem; background:var(--parchment2); }
+.doc-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; }
+.doc-card {
+  background:var(--white); border:1px solid var(--border-lt); padding:1.75rem 1.5rem;
+  transition:border-color .2s, transform .2s;
+  display:flex; flex-direction:column; gap:.5rem;
+}
+.doc-card:hover { border-color:var(--gold); transform:translateY(-2px); }
+.doc-icon { font-size:1.4rem; }
+.doc-name { font-family:'Cormorant Garamond',serif; font-size:1.05rem; font-weight:600; color:var(--forest); }
+.doc-desc { font-size:.8rem; color:var(--muted); line-height:1.6; }
+
+/* ── FAQ ── */
+.faq { padding:6rem 2.5rem; background:var(--white); }
+.faq-list { max-width:720px; display:flex; flex-direction:column; }
+details { border-bottom:1px solid var(--border-lt); }
+details:first-child { border-top:1px solid var(--border-lt); }
+summary {
+  padding:1.25rem 0; cursor:pointer; list-style:none;
+  display:flex; justify-content:space-between; align-items:center;
+  font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:600; color:var(--forest);
+  user-select:none;
+}
+summary::-webkit-details-marker { display:none; }
+summary::after { content:'+'; font-family:'DM Sans',sans-serif; color:var(--gold); font-size:1.2rem; font-weight:300; transition:transform .2s; flex-shrink:0; margin-left:1rem; }
+details[open] summary::after { transform:rotate(45deg); }
+.faq-body { padding:0 0 1.25rem; font-size:.9rem; color:var(--body); line-height:1.8; max-width:600px; }
+
+/* ── CTA ── */
+.cta-section {
+  padding:6rem 2.5rem;
+  background:var(--forest);
+  position:relative; overflow:hidden;
+  text-align:center;
+}
+.cta-section::before {
+  content:'';
+  position:absolute; inset:0;
+  background:radial-gradient(ellipse 60% 80% at 50% 50%, rgba(196,154,60,.08) 0%, transparent 70%);
+}
+.cta-section .eyebrow { justify-content:center; color:rgba(196,154,60,.7); }
+.cta-section .eyebrow::before { background:rgba(196,154,60,.4); }
+.cta-section h2 { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,5vw,3.5rem); font-weight:300; font-style:italic; color:var(--parchment); margin-bottom:1rem; position:relative; z-index:1; }
+.cta-section p { color:rgba(245,240,232,.55); font-size:1rem; max-width:480px; margin:0 auto 2.5rem; line-height:1.8; position:relative; z-index:1; }
+.cta-section .ctas { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; position:relative; z-index:1; }
+.btn-gold {
+  display:inline-flex; align-items:center; gap:.5rem;
+  background:var(--gold); color:var(--forest);
+  font-family:'DM Sans',sans-serif; font-size:.8rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+  padding:1rem 2rem; text-decoration:none; transition:all .2s;
+}
+.btn-gold:hover { background:var(--gold-light); transform:translateY(-1px); }
+.btn-outline-light {
+  display:inline-flex; align-items:center; gap:.5rem;
+  background:transparent; color:var(--parchment);
+  font-family:'DM Sans',sans-serif; font-size:.8rem; font-weight:400; letter-spacing:.1em; text-transform:uppercase;
+  padding:1rem 2rem; text-decoration:none; border:1px solid rgba(245,240,232,.25); transition:all .2s;
+}
+.btn-outline-light:hover { border-color:rgba(245,240,232,.6); }
+.phone-big {
+  font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,4vw,3rem); font-weight:300; font-style:italic;
+  color:var(--gold); text-decoration:none; display:block; margin-bottom:2rem; position:relative; z-index:1;
+  transition:color .2s;
+}
+.phone-big:hover { color:var(--gold-light); }
+
+/* ── FOOTER ── */
+footer { background:var(--ink); padding:3rem 2.5rem; }
+.footer-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:3rem; }
+.footer-brand p { font-size:.8rem; color:rgba(245,240,232,.3); line-height:1.75; max-width:260px; margin-top:.75rem; }
+.footer-col h4 { font-family:'DM Mono',monospace; font-size:.56rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin-bottom:1rem; opacity:.7; }
+.footer-col a { display:block; font-size:.82rem; color:rgba(245,240,232,.3); text-decoration:none; margin-bottom:.4rem; transition:color .2s; }
+.footer-col a:hover { color:var(--parchment); }
+.footer-bottom { max-width:1100px; margin:2rem auto 0; padding-top:1.5rem; border-top:1px solid rgba(196,154,60,.1); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+.footer-bottom p { font-size:.7rem; color:rgba(245,240,232,.2); line-height:1.6; }
+.footer-bottom a { color:rgba(245,240,232,.2); text-decoration:none; }
+.footer-bottom a:hover { color:rgba(245,240,232,.5); }
+@media(max-width:768px){ .footer-inner{grid-template-columns:1fr} .process-steps::before{display:none} }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="/assets/svg/logo-compact-dark-text.svg" alt="WillVana">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">How It Works</a></li>
+    <li><a href="#documents">Documents</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="/intake" class="nav-cta">Begin Your Plan →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-deco">Legacy</div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">NC Estate Planning Attorney · Flat Fee</div>
+    <h1 class="hero-h1">
+      Your family.<br>Your legacy.<br>
+      <em>Protected.</em>
+    </h1>
+    <p class="hero-sub">
+      Attorney Daniel T. Barker drafts <strong>wills, trusts, and complete estate plans</strong> designed for North Carolina families. Flat fee. Plain language. No hourly surprises.
+    </p>
+    <div class="hero-ctas">
+      <a href="/intake" class="btn-forest">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Begin My Estate Plan
+      </a>
+      <a href="tel:9198318901" class="btn-outline-forest">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.82a19.79 19.79 0 01-3.07-8.63A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 15z"/></svg>
+        (919) 831-8901
+      </a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        <strong>NC-compliant</strong> documents
+      </div>
+      <div class="trust-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        <strong>Flat fee</strong> — no hourly billing
+      </div>
+      <div class="trust-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        <strong>30+ years</strong> NC law
+      </div>
+      <div class="trust-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        NCUTC-<strong>compliant</strong> trusts
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rule-strip"></div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-inner">
+    <div class="eyebrow">What We Prepare</div>
+    <h2 class="section-title">Every document your<br><em>family needs.</em></h2>
+    <p class="section-sub">Each document is drafted specifically for North Carolina law — not a generic national template with NC names pasted in.</p>
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="service-icon">📜</div>
+        <h3>Last Will &amp; Testament</h3>
+        <p>NC-compliant will with self-proving affidavit, executor designation, guardian nominations, and specific bequests. Probate-ready on execution.</p>
+        <div class="service-fee">Starting at $750 flat fee</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏛️</div>
+        <h3>Irrevocable Trust</h3>
+        <p>NCUTC-compliant irrevocable trust with spendthrift provisions, discretionary distributions, trustee succession, and digital asset authority.</p>
+        <div class="service-fee">Starting at $1,500 flat fee</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">↩️</div>
+        <h3>Pour-Over Will</h3>
+        <p>Coordinates with your trust to ensure all assets flow into your trust structure on death — no gaps, no intestacy exposure.</p>
+        <div class="service-fee">Included with trust package</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📋</div>
+        <h3>Complete Estate Package</h3>
+        <p>Will, irrevocable trust, pour-over will, trustee checklist, and 12-month compliance calendar. Everything coordinated and cross-referenced.</p>
+        <div class="service-fee">Starting at $2,200 flat fee</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why" id="why">
+  <div class="section-inner">
+    <div class="why-grid">
+      <div>
+        <div class="eyebrow">Why WillVana</div>
+        <h2 class="section-title">A plan built for<br><em>North Carolina.</em></h2>
+        <div class="why-list">
+          <div class="why-item">
+            <div class="why-num">I</div>
+            <div>
+              <h3>NC-Specific Drafting — Not Templates</h3>
+              <p>Every document is drafted under the NC Uniform Trust Code and NC General Statutes. Your plan works in NC courts, period.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-num">II</div>
+            <div>
+              <h3>You Know the Cost Before You Sign</h3>
+              <p>Flat fee quoted upfront based on your plan. No hourly billing, no engagement letter surprises. What you see is what you pay.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-num">III</div>
+            <div>
+              <h3>Plain Language. Real Explanations.</h3>
+              <p>Attorney Barker explains what every document does, why it matters, and what happens if you don't have it. No jargon fog.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-num">IV</div>
+            <div>
+              <h3>Digital Assets Included</h3>
+              <p>Your plan covers cryptocurrency, online accounts, and digital property under NC's RUFADAA — because your estate is more than real property.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="legacy-card">
+        <p class="legacy-quote">"The most generous thing you can do for your family is to make the hard decisions now — while you still can."</p>
+        <div class="legacy-attr">Daniel T. Barker, Esq. · Principal, Barker Richardson, PLLC</div>
+        <div class="legacy-divider"></div>
+        <div class="legacy-stats">
+          <div>
+            <div class="legacy-stat-num">30+</div>
+            <div class="legacy-stat-label">Years NC Practice</div>
+          </div>
+          <div>
+            <div class="legacy-stat-num">100%</div>
+            <div class="legacy-stat-label">NC-Specific Drafting</div>
+          </div>
+          <div>
+            <div class="legacy-stat-num">NCUTC</div>
+            <div class="legacy-stat-label">Trust Compliance</div>
+          </div>
+          <div>
+            <div class="legacy-stat-num">$0</div>
+            <div class="legacy-stat-label">Hourly Billing</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="section-inner">
+    <div class="eyebrow">How It Works</div>
+    <h2 class="section-title">From conversation<br><em>to signed plan.</em></h2>
+    <p class="section-sub">Four steps from today to a complete, executed estate plan sitting in your safe deposit box.</p>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="process-num">01</div>
+        <h3>Answer Questions Online</h3>
+        <p>Our intake questionnaire gathers your family situation, asset overview, and goals. Takes about 10 minutes.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">02</div>
+        <h3>Receive Your Flat-Fee Quote</h3>
+        <p>Based on your answers, we send a clear flat-fee proposal for your specific plan. No surprises.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">03</div>
+        <h3>Attorney Drafts Your Documents</h3>
+        <p>Attorney Barker personally drafts every document. You review, ask questions, and request revisions — included.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">04</div>
+        <h3>Execute &amp; Store</h3>
+        <p>We coordinate proper NC execution — witnesses, notary, self-proving affidavit. Your documents are valid and ready.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCUMENTS -->
+<section class="documents" id="documents">
+  <div class="section-inner">
+    <div class="eyebrow">Document Library</div>
+    <h2 class="section-title">Every document<br><em>your plan may include.</em></h2>
+    <p class="section-sub">Your package is assembled from these NC-compliant instruments based on your family's specific situation.</p>
+    <div class="doc-grid">
+      <div class="doc-card">
+        <div class="doc-icon">📜</div>
+        <div class="doc-name">Last Will &amp; Testament</div>
+        <div class="doc-desc">NC G.S. § 31 compliant. Self-proving affidavit included.</div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-icon">🏛️</div>
+        <div class="doc-name">Irrevocable Trust</div>
+        <div class="doc-desc">NCUTC-compliant. Spendthrift &amp; discretionary provisions.</div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-icon">↩️</div>
+        <div class="doc-name">Pour-Over Will</div>
+        <div class="doc-desc">Coordinates will with trust under G.S. § 31-47.</div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-icon">✅</div>
+        <div class="doc-name">Trustee Checklist</div>
+        <div class="doc-desc">Step-by-step compliance guide for your named trustee.</div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-icon">📅</div>
+        <div class="doc-name">Compliance Calendar</div>
+        <div class="doc-desc">12-month trustee obligation calendar with deadlines.</div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-icon">✉️</div>
+        <div class="doc-name">Trustee Letter Bank</div>
+        <div class="doc-desc">Pre-drafted beneficiary communication templates.</div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-icon">💻</div>
+        <div class="doc-name">Digital Asset Rider</div>
+        <div class="doc-desc">RUFADAA-compliant authority over crypto &amp; online assets.</div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-icon">📑</div>
+        <div class="doc-name">Funding Memorandum</div>
+        <div class="doc-desc">What to transfer, how to title it, and in what order.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="section-inner">
+    <div class="eyebrow">Common Questions</div>
+    <h2 class="section-title">What people ask<br><em>before they start.</em></h2>
+    <div class="faq-list">
+      <details>
+        <summary>Do I need a trust, a will, or both?</summary>
+        <div class="faq-body">Most NC families benefit from both. A will controls what happens at your death but goes through probate — a public, court-supervised process. A trust controls assets placed inside it privately, without probate. A pour-over will catches anything you forgot to put in the trust. The combination is the most complete protection. If your estate is modest and uncomplicated, a well-drafted will alone may be sufficient — we'll tell you which makes sense for your situation.</div>
+      </details>
+      <details>
+        <summary>What makes an NC will valid?</summary>
+        <div class="faq-body">Under NC G.S. § 31, a valid will requires: you must be 18+ and of sound mind; the will must be in writing; you must sign it (or direct someone to sign in your presence); and two competent witnesses must sign in your presence. We include a self-proving affidavit under G.S. § 31-11.6, which eliminates the need for witnesses to appear in probate court later.</div>
+      </details>
+      <details>
+        <summary>What is the NC Uniform Trust Code?</summary>
+        <div class="faq-body">The NCUTC (NC G.S. Chapter 36C) is North Carolina's governing statute for trusts. It controls how trusts are created, administered, modified, and terminated in NC. All trusts we draft are NCUTC-compliant — meaning they are valid under NC law and will be recognized by NC courts, financial institutions, and the NC Bar.</div>
+      </details>
+      <details>
+        <summary>Can you include cryptocurrency and digital assets?</summary>
+        <div class="faq-body">Yes. North Carolina adopted RUFADAA (the Revised Uniform Fiduciary Access to Digital Assets Act) which governs how executors and trustees access and manage digital property. We include specific digital asset authority provisions in every trust and will we draft, covering cryptocurrency wallets, exchange accounts, online banking, and social media.</div>
+      </details>
+      <details>
+        <summary>How long does the process take?</summary>
+        <div class="faq-body">From intake to drafted documents is typically 5–10 business days. Execution depends on your schedule — we coordinate witnesses and notary. Most clients have a complete, executed plan within 3 weeks of starting. If you have a time-sensitive situation (upcoming surgery, travel, etc.) tell us and we prioritize.</div>
+      </details>
+      <details>
+        <summary>What happens after I sign — do I need to do anything?</summary>
+        <div class="faq-body">Yes — funding your trust is critical. A trust only controls assets that are titled in its name. We provide a Funding Memorandum explaining exactly which assets to transfer, how to retitle them, and which beneficiary designations to update (retirement accounts, life insurance). An unfunded trust is a common and costly mistake we help you avoid.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="section-inner">
+    <div class="eyebrow">Begin Your Plan</div>
+    <h2>Your legacy starts<br><em>with one conversation.</em></h2>
+    <p>Answer a few questions online and Attorney Barker will send you a flat-fee proposal for your specific plan — usually within one business day.</p>
+    <a href="tel:9198318901" class="phone-big">(919) 831-8901</a>
+    <div class="ctas">
+      <a href="/intake" class="btn-gold">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Begin Estate Plan Online
+      </a>
+      <a href="tel:9198318901" class="btn-outline-light">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.82a19.79 19.79 0 01-3.07-8.63A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 15z"/></svg>
+        Call (919) 831-8901
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="/assets/svg/logo-compact-dark-text.svg" alt="WillVana" style="height:28px;filter:brightness(0) invert(1) opacity(.4)">
+      <p>A LawVana.com service by Barker Richardson, PLLC. Licensed NC attorneys. Little Firm, Big Results.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#services">Wills &amp; Trusts</a>
+      <a href="#documents">Document Library</a>
+      <a href="#process">How It Works</a>
+      <a href="/intake">Get a Quote</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="tel:9198318901">(919) 831-8901</a>
+      <a href="https://lawvana.com">LawVana.com</a>
+      <a href="https://barkerrichardson.com">Barker Richardson, PLLC</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Barker Richardson, PLLC · All rights reserved · <a href="https://lawvana.com">LawVana.com</a></p>
+    <p>This website is attorney advertising. Nothing on this site constitutes legal advice or creates an attorney-client relationship. Daniel T. Barker is licensed to practice law in North Carolina.</p>
+  </div>
+</footer>
+
+</body>
+</html>
